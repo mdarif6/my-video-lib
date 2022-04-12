@@ -1,0 +1,37 @@
+/* @import url(../home-page/HomePage.css); */
+:root {
+  --v-primary-color: #ff0000;
+  --v-secondary-color: #e7cccc;
+  --v-white-color: #ffffff;
+  --v-darkred-color: rgb(204, 9, 9);
+}
+
+/* ***************** */
+
+/* Video Main Details */
+.v-video-wraper {
+  padding: 1rem;
+}
+.v-video-wraper img {
+  width: 100%;
+}
+.v-video-bottom {
+  text-align: left;
+}
+
+.v-videolist-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .v-video-main {
+    grid-column: 1/4;
+  }
+  .v-videolist-aside {
+    grid-column: 1/4;
+    align-items: center;
+  }
+}
