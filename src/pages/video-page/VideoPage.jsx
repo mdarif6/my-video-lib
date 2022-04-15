@@ -12,7 +12,7 @@ export default function VideoPage() {
       <Header />
       <Aside />
       <VideoMain />
-      <VideoListAside />
+      {/* <VideoListAside /> */}
       <Footer />
     </div>
   );

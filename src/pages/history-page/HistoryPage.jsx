@@ -9,7 +9,7 @@ export default function HistoryPage() {
   return (
     <div className="v-video">
       <Header />
-      <Nav />
+      {/* <Nav /> */}
       <Aside />
       <HistoryMain />
       <Footer />

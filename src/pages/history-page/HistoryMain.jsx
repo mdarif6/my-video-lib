@@ -67,6 +67,25 @@ export default function HistoryMain() {
             </button>
           </div>
         </div>
+        <div className="v-card card-ecom">
+          <img src={card_img} alt="video_thumbnail" />
+          <div className="card-product-bottom">
+            <div className="card-details">
+              <div className="v-product-icon-wraper">
+                <p className="v-card-product-name">Title</p>
+                <div>
+                  <i className="fas fa-ellipsis-v"></i>
+                </div>
+              </div>
+              <p className="card-subtitle v-card-product-desc">
+                6K Views | 4 hours ago
+              </p>
+            </div>
+            <button className="card-foot-btn card-btn-ecom">
+              Watch this video
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
