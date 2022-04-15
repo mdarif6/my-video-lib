@@ -1,0 +1,41 @@
+.v-login-window {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 4rem auto;
+}
+.v-login-container h2 {
+  padding: 0.5rem;
+}
+.v-input-text {
+  display: flex;
+  flex-direction: column;
+}
+.v-input-text label {
+  margin: 0 1rem;
+  text-align: left;
+}
+.v-input-text input {
+  padding: 1rem;
+  margin: 0 1rem;
+}
+.login-check {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+.btn-primary {
+  width: 90%;
+  background-color: var(--v-primary-color);
+}
+
+.outline-primary {
+  width: 90%;
+}
+.login-bottom-text {
+  padding: 1rem;
+}
+@media only screen and (max-width: 800px) {
+  .v-login-window {
+    margin: 1rem;
+  }
+}
