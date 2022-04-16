@@ -18,6 +18,9 @@
 .v-video-bottom {
   text-align: left;
 }
+.v-playing-video-and-asidelist {
+  display: flex;
+}
 
 .v-videolist-aside {
   display: flex;
@@ -27,11 +30,8 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .v-video-main {
-    grid-column: 1/4;
-  }
-  .v-videolist-aside {
-    grid-column: 1/4;
-    align-items: center;
+  .v-playing-video-and-asidelist {
+    display: flex;
+    flex-direction: column;
   }
 }

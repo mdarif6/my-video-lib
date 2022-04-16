@@ -10,36 +10,39 @@
 .v-video {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 2fr;
+  /* grid-template-columns: 2fr; */
   grid-template-rows: min-content auto min-content;
 }
 
 .v-header {
   background-color: var(--v-gray-color);
-  grid-column: 1/4;
+  grid-column: 1/3;
   grid-row: 1/2;
 }
 .v-aside {
   min-width: 200px;
   grid-column: 1/2;
-  grid-row: 2/4;
+  grid-row: 2/3;
 }
-.v-nav {
+/* .v-nav {
   margin: 0 2rem;
   grid-column: 2/4;
   grid-row: 2/3;
-}
+} */
 
 .v-main {
-  grid-column: 2/4;
-  grid-row: 3/4;
+  grid-column: 2/3;
+  grid-row: 2/3;
 }
 
 .v-footer {
-  grid-column: 1/4;
-  grid-row: 4/5;
+  grid-column: 1/3;
+  grid-row: 3/4;
 }
 
+.link-style {
+  text-decoration: none;
+}
 .v-header {
   display: flex;
   justify-content: space-between;
@@ -51,7 +54,11 @@
   font-weight: bold;
 }
 span {
-  color: var(--v-primary-color);
+  color: var(--v-white-color);
+  background-color: red;
+  padding: 0.2rem 0.4rem;
+  border-bottom-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
 }
 
 .v-search-and-button {
@@ -131,11 +138,6 @@ span {
   /* border: 0.1rem solid; */
 }
 
-/* .card-ecom {
-    position: relative;
-    justify-content: center;
-    align-items: center;
-  } */
 .card-ecom img {
   width: 100%;
 }
@@ -162,6 +164,7 @@ span {
   text-align: left;
   /* justify-content: center; */
 }
+
 .card-details p {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -173,6 +176,7 @@ span {
 .card-details p:hover {
   cursor: pointer;
 }
+
 .v-product-icon-wraper {
   display: flex;
   padding: 0.5rem 0.5rem 0 0;
@@ -200,6 +204,7 @@ span {
   } */
 
 .card-btn-ecom {
+  width: 100%;
   /* padding: 0.5rem 0 0.5rem 0; */
   font-size: 1rem;
   border: none;
@@ -212,6 +217,27 @@ span {
   background-color: var(--v-darkred-color);
 }
 
+.v-card-menu-wrapper {
+  width: fit-content;
+  background-color: var(--v-white-color);
+  box-shadow: 0px 0px 1px 1px var(--v-secondary-color);
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
+.v-card-menu {
+  padding: 1rem;
+}
+.v-card-icons-with-menu {
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+}
+.v-card-icons-with-menu:hover {
+  width: 100%;
+  background-color: var(--v-secondary-color);
+  cursor: pointer;
+}
 .v-footer {
   background-color: var(--v-primary-color);
   color: var(--v-white-color);
@@ -234,6 +260,81 @@ span {
   color: var(--v-white-color);
 }
 
+/* Watch Later */
+.v-watchlater-heading,
+.v-history-heading {
+  padding: 1rem;
+}
+.v-watchlater-videos,
+.v-history-videos {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.v-history-heading-and-btn {
+  margin: 0 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.v-history-heading-and-btn div:last-child {
+  margin-left: auto;
+}
+
+/* playlist create page */
+.v-playlist-create-wrapper {
+  background-color: rgb(235, 231, 231);
+  border-radius: 0.5rem;
+  margin: auto;
+  min-width: 300px;
+}
+.v-playlist-box-heading {
+  font-size: 1.5rem;
+  display: flex;
+  padding: 1rem;
+}
+.v-playlist-box-heading div:last-child {
+  margin-left: auto;
+}
+.v-playlist-box-blank-div {
+  border: 1px solid black;
+}
+.v-playlist-checkbox {
+  padding: 1rem;
+  text-align: left;
+}
+.v-add-playlist {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+.v-playlist-name {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+.v-playlist-name label {
+  align-items: left;
+}
+.v-playlist-name input {
+  padding: 0.5rem;
+  outline: 0;
+  border-width: 0 0 2px;
+}
+
+.v-playlist-create-btn {
+  background-color: transparent;
+  border: none;
+  padding: 1rem;
+}
+.v-playlist-create-btn:hover {
+  cursor: pointer;
+}
 @media only screen and (max-width: 800px) {
   .v-video {
     grid-template-columns: 1fr;
@@ -241,26 +342,30 @@ span {
   }
 
   .v-header {
-    grid-column: 1/4;
+    grid-column: 1/3;
     grid-row: 1/2;
   }
   .v-aside {
     min-width: 200px;
-    grid-column: 1/4;
-    grid-row: 2/4;
+    grid-column: 1/3;
+    grid-row: 2/3;
   }
-  .v-nav {
+  /* .v-nav {
     grid-column: 1/4;
     grid-row: 4/5;
-  }
+  } */
 
   .v-main {
-    grid-column: 1/4;
-    grid-row: 5/6;
+    grid-column: 1/3;
+    grid-row: 3/4;
   }
 
   .v-footer {
-    grid-column: 1/4;
-    grid-row: 6/7;
+    grid-column: 1/3;
+    grid-row: 4/5;
+  }
+
+  .v-history-heading-and-btn {
+    margin: 0 auto;
   }
 }

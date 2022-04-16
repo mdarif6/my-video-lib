@@ -12,7 +12,7 @@ export default function HomePage() {
     <div className="v-video">
       <Header />
       <Aside />
-      <Nav />
+      {/* <Nav /> */}
       <Main />
       <Footer />
     </div>
