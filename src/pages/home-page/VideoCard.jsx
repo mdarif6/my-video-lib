@@ -3,10 +3,61 @@ import React from "react";
 import { useVideo } from "../../context/video-context";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import Modal from "../modal/Modal";
 
 export default function VideoCard({ item }) {
   const { state, dispatch } = useVideo();
   const [showMenu, setShowMenu] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  function showModalHandler() {
+    setShowModal(true);
+  }
+
+  async function watchLaterHandler(item) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.post(
+        "/api/user/watchlater",
+        {
+          video: item,
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      console.log("watchlater", response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function historyHandler(item) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.post(
+        "/api/user/history",
+        {
+          video: item,
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      console.log("history", response);
+      if (response.status === 201) {
+        dispatch({ type: "ADD_TO_HISTORY", payload: item });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="v-card card-ecom">
@@ -29,14 +80,29 @@ export default function VideoCard({ item }) {
                   <div>
                     <i class="far fa-clock"></i>
                   </div>
-                  <div>Save to watch later</div>
+                  <div
+                    onClick={() => watchLaterHandler(item)}
+                    // onClick={() => {
+                    //   dispatch({ type: "ADD_TO_WATCHLATER", payload: item });
+                    //   setShowMenu(false);
+                    // }}
+                  >
+                    Save to watch later
+                  </div>
                 </div>
-                <div className="v-card-icons-with-menu">
+
+                <div
+                  className="v-card-icons-with-menu"
+                  onClick={showModalHandler}
+                >
                   <div>
                     <i class="fas fa-play"></i>
                   </div>
                   <div>Save to playlist</div>
                 </div>
+
+                {showModal && <Modal setShowModal={setShowModal} item={item} />}
+
                 <div className="v-card-icons-with-menu">
                   <div>
                     <i class="fas fa-share"></i>
@@ -54,7 +120,8 @@ export default function VideoCard({ item }) {
         <Link to={`/video/${item._id}`}>
           <button
             className="card-foot-btn card-btn-ecom"
-            onClick={() => dispatch({ type: "PLAY_VIDEO", payload: item })}
+            // onClick={() => dispatch({ type: "ADD_TO_HISTORY", payload: item })}
+            onClick={() => historyHandler(item)}
           >
             Watch this video
           </button>

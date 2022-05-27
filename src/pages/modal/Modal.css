@@ -1,0 +1,23 @@
+.v-modal-wrapper {
+  /* width: fit-content;
+  
+  height: fit-content; */
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(246, 243, 243, 0.5);
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* opacity: 1; */
+  /* transition: all 0.3s ease-in-out; */
+
+  /* pointer-events: none; */
+}
+.v-playlist-create-wrapper {
+  width: 300px;
+  /*  background-color: rgba(67, 65, 65, 0.5); */
+}

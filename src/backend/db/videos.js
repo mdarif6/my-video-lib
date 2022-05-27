@@ -14,6 +14,7 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "ETsoVaNA2_E",
     thumbnail_url: "https://img.youtube.com/vi/ETsoVaNA2_E/mqdefault.jpg",
+    category: "History",
   },
 
   {
@@ -25,6 +26,7 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "lhYUc9g6r9A",
     thumbnail_url: "https://img.youtube.com/vi/lhYUc9g6r9A/mqdefault.jpg",
+    category: "History",
   },
   {
     _id: uuid(),
@@ -35,6 +37,7 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "mrA_6HuoIQo",
     thumbnail_url: "https://img.youtube.com/vi/mrA_6HuoIQo/mqdefault.jpg",
+    category: "History",
   },
   {
     _id: uuid(),
@@ -45,6 +48,7 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "qGJvxRynRSY",
     thumbnail_url: "https://img.youtube.com/vi/qGJvxRynRSY/mqdefault.jpg",
+    category: "History",
   },
   {
     _id: uuid(),
@@ -54,6 +58,7 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "MMWmsypPKNM",
     thumbnail_url: "https://img.youtube.com/vi/MMWmsypPKNM/mqdefault.jpg",
+    category: "History",
   },
   {
     _id: uuid(),
@@ -64,6 +69,7 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "iGJF4idquU8",
     thumbnail_url: "https://img.youtube.com/vi/iGJF4idquU8/mqdefault.jpg",
+    category: "History",
   },
   {
     _id: uuid(),
@@ -73,6 +79,7 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "kx3wjYB1xNA",
     thumbnail_url: "https://img.youtube.com/vi/kx3wjYB1xNA/mqdefault.jpg",
+    category: "Food",
   },
   {
     _id: uuid(),
@@ -83,6 +90,7 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "N9b_EoZJxsw",
     thumbnail_url: "https://img.youtube.com/vi/N9b_EoZJxsw/mqdefault.jpg",
+    category: "Food",
   },
   {
     _id: uuid(),
@@ -93,5 +101,6 @@ export const videos = [
     creator: "Soham Shah",
     videoid: "CTpN5XbY9Uo&t=23s",
     thumbnail_url: "https://img.youtube.com/vi/CTpN5XbY9Uo/mqdefault.jpg",
+    category: "Road Trip",
   },
 ];

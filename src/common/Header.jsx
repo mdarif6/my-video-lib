@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../context/auth-context";
+import { useVideo } from "../context/video-context";
 
 export default function Header() {
-  const [search, setSearch] = useState();
+  const { state, dispatch } = useVideo();
+  const { state: authState, dispatch: authDispatch } = useAuth();
 
-  function searchingVideos(videos, query) {
-    return videos.filter((video) => {
-      return video.title.toLowerCase().includes(query.toLowerCase());
-    });
+  function logoutHandler() {
+    localStorage.removeItem("authToken");
+    authDispatch({ type: "SET_AUTH", payload: false });
   }
 
   return (
@@ -24,16 +26,22 @@ export default function Header() {
           className="v-search-box"
           type="search"
           placeholder="search your content here"
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) =>
+            dispatch({ type: "ADD_SEARCHQUERY", payload: e.target.value })
+          }
         />
         <button className="v-search-button" type="submit">
           <i class="fas fa-search"></i>
         </button>
       </div>
       <div className="v-user-profile">
-        <Link className="link-style" to="/login">
-          <i class="fas fa-user-circle"></i>
-        </Link>
+        {authState.isAuthenticated ? (
+          <i class="fas fa-power-off" onClick={logoutHandler}></i>
+        ) : (
+          <Link className="link-style" to="/login">
+            <i class="fas fa-user-circle"></i>
+          </Link>
+        )}
       </div>
     </div>
   );

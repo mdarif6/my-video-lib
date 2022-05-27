@@ -1,0 +1,17 @@
+.v-playlist-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.v-playlistname {
+  font-weight: bold;
+  height: 100px;
+  width: 200px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--v-gray-color);
+  color: white;
+}

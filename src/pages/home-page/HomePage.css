@@ -12,6 +12,7 @@
   grid-gap: 1rem;
   /* grid-template-columns: 2fr; */
   grid-template-rows: min-content auto min-content;
+  grid-template-columns: min-content;
 }
 
 .v-header {
@@ -93,10 +94,23 @@ span {
 .v-user-profile {
   font-size: 2rem;
 }
+.fa-power-off,
+.fa-user-circle {
+  color: var(--v-white-color);
+  cursor: pointer;
+}
 .v-aside-content-and-icons {
   padding: 1rem;
+  /* display: flex; */
+  /* gap: 2rem; */
+}
+.link-menu {
+  padding: 0.5rem;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
+}
+.link-menu:hover {
+  background-color: var(--v-secondary-color);
 }
 /* .v-aside-content-and-icons div:last-child {
   margin-left: auto;
@@ -111,7 +125,7 @@ span {
   padding: 1rem;
 }
 .v-chip {
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   background-color: var(--v-gray-color);
   color: var(--v-white-color);
   border-radius: 1rem;
@@ -168,7 +182,7 @@ span {
 .card-details p {
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   color: var(--v-black-color);
   padding: 0.5rem;
   line-height: 1;
@@ -265,13 +279,25 @@ span {
 .v-history-heading {
   padding: 1rem;
 }
-.v-watchlater-videos,
+/* .v-watchlater-videos,
 .v-history-videos {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+} */
+
+.v-history-videos {
+  display: flex;
+  gap: 1rem;
+}
+.v-side-icon-wraper {
+  width: 100%;
+  display: flex;
+}
+.v-card-side-delete {
+  font-size: 1.5rem;
 }
 
 .v-history-heading-and-btn {
@@ -284,7 +310,33 @@ span {
   margin-left: auto;
 }
 
+/* Liked Videos Page */
+.v-liked-heading {
+  padding: 1rem 0;
+  text-align: left;
+}
+.v-liked-wrapper {
+  display: flex;
+  gap: 1rem;
+}
 /* playlist create page */
+.v-playlist-main {
+  display: flex;
+}
+.v-playlist-card-container {
+  flex-wrap: nowrap;
+  display: flex;
+  gap: 2rem;
+}
+.v-playlist-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 200px;
+  outline: dashed 1px black;
+}
+
 .v-playlist-create-wrapper {
   background-color: rgb(235, 231, 231);
   border-radius: 0.5rem;
@@ -364,8 +416,18 @@ span {
     grid-column: 1/3;
     grid-row: 4/5;
   }
-
+  .v-aside-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .v-side-icon-wraper {
+    flex-direction: column;
+    align-items: flex-end;
+  }
   .v-history-heading-and-btn {
     margin: 0 auto;
+  }
+  .v-history-videos {
+    flex-direction: column;
   }
 }

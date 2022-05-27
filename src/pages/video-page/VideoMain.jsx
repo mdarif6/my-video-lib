@@ -1,7 +1,9 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
 import video_img from "../../assets/images/video_main.jpg";
 import { useVideo } from "../../context/video-context";
+import axios from "axios";
 
 export default function VideoMain() {
   const { state, dispatch } = useVideo();
@@ -15,6 +17,53 @@ export default function VideoMain() {
 
   let videoPlay = state.videos.find((video) => video._id === videoID);
   console.log(videoPlay);
+
+  async function likeHandler(videoToSend) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.post(
+        "/api/user/likes",
+        {
+          video: videoToSend,
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        dispatch({ type: "ADD_TO_LIKED", payload: videoPlay });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function watchLaterHandler(videoToWatchLater) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.post(
+        "/api/user/watchlater",
+        {
+          video: videoToWatchLater,
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        dispatch({ type: "ADD_TO_WATCHLATER", payload: videoPlay });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="v-video-main">
       <div className="v-playing-video-and-asidelist">
@@ -33,11 +82,37 @@ export default function VideoMain() {
             </div>
           </div>
           <div className="v-video-bottom">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+            <div className="v-bottom-title">{videoPlay.title}</div>
+            <div className="v-bottom-date-and-menu">
+              <div className="v-bottom-date">date</div>
+              <div className="v-bottom-menu">
+                <div>
+                  <i
+                    class="far fa-thumbs-up"
+                    onClick={() => likeHandler(videoPlay)}
+                    // onClick={() =>
+                    //   dispatch({ type: "ADD_TO_LIKED", payload: videoPlay })
+                    // }
+                  ></i>
+                  Like
+                </div>
+                <div>
+                  <i
+                    class="far fa-clock"
+                    onClick={() => watchLaterHandler(videoPlay)}
+                  ></i>
+                  Watch Later
+                </div>
+                <div>
+                  <i class="far fa-bookmark"></i> Save
+                </div>
+              </div>
+            </div>
+            {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate
             a asperiores ipsum, odio enim consequatur, aspernatur ducimus
             dolorum dolorem non ad rerum est quasi quisquam dolore esse odit
             vero atque! dolorem non ad rerum est quasi quisquam dolore esse odit
-            vero atque!
+            vero atque! */}
           </div>
         </div>
         {/* aside */}

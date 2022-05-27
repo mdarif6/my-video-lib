@@ -19,14 +19,6 @@ export default function Nav() {
         {state.categories.map((category) => (
           <FilterCategories key={category._id} category={category} />
         ))}
-        {/* <p className="v-chip">category</p>
-        <p className="v-chip">category</p>
-        <p className="v-chip">category</p>
-        <p className="v-chip">category</p>
-        <p className="v-chip">category</p>
-        <p className="v-chip">category</p>
-        <p className="v-chip">category</p>
-        <p className="v-chip">category</p> */}
       </div>
     </div>
   );
