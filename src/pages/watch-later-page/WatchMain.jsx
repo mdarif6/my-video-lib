@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import card_img from "../../assets/images/card_image.jpg";
 import { useVideo } from "../../context/video-context";
 import axios from "axios";
 
 export default function WatchMain() {
   const { state, dispatch } = useVideo();
-  console.log(state);
 
   useEffect(() => {
     (async function showWatchLater() {
@@ -28,9 +26,8 @@ export default function WatchMain() {
       } catch (error) {
         console.log(error);
       }
-    });
+    })();
   }, []);
-  // from here too i have to remvee iiffee
 
   async function deleteWatchHandler(deleteWatchVideos) {
     let token = localStorage.getItem("authToken");
@@ -61,7 +58,7 @@ export default function WatchMain() {
 
       {state.watchlater.map((videos) => {
         return (
-          <div className="v-history-videos">
+          <div className="v-history-videos" key={videos._id}>
             <div className="v-card card-ecom">
               <Link to={`/video/${videos._id}`}>
                 <img src={videos.thumbnail_url} alt="video_thumbnail" />
@@ -74,13 +71,7 @@ export default function WatchMain() {
                     <p className="v-card-product-name">{videos.title}</p>
                     <div className="v-card-side-delete">
                       <i
-                        class="fas fa-times"
-                        // onClick={() =>
-                        //   dispatch({
-                        //     type: "DELETE_FROM_HISTORY",
-                        //     payload: videos._id,
-                        //   })
-                        // }
+                        className="fas fa-times"
                         onClick={() => deleteWatchHandler(videos)}
                       ></i>
                     </div>

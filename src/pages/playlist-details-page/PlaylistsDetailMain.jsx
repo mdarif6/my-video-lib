@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { useVideo } from "../../context/video-context";
@@ -7,7 +7,6 @@ import { useVideo } from "../../context/video-context";
 export default function PlaylistsDetailMain() {
   const { playlistID } = useParams();
   const { state, dispatch } = useVideo();
-  console.log(state.playlistDetail, "for playlist");
 
   useEffect(() => {
     (async function showPlaylistDetails() {
@@ -17,7 +16,7 @@ export default function PlaylistsDetailMain() {
           authorization: token,
         },
       });
-      console.log("Apiget", response.data.playlist.videos);
+
       if (response.status === 200) {
         dispatch({
           type: "ADD_TO_PLAYLIST_DETAIL",
@@ -26,10 +25,30 @@ export default function PlaylistsDetailMain() {
       }
       try {
       } catch (error) {
-        console.log();
+        console.log(error);
       }
     })();
   }, []);
+
+  async function deletePlayListHandler(item) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.delete(
+        `/api/user/playlists/${playlistID}/${item._id}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        dispatch({ type: "DELETE_FROM_PLAYLIST_DETAIL", payload: item._id });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="v-watchlater-wrapper">
@@ -38,9 +57,9 @@ export default function PlaylistsDetailMain() {
         return (
           <div className="v-history-videos" key={item._id}>
             <div className="v-card card-ecom">
-              {/* <Link to={`/video/${videos._id}`}> */}
-              <img src={item.thumbnail_url} alt="video_thumbnail" />
-              {/* </Link> */}
+              <Link to={`/video/${item._id}`}>
+                <img src={item.thumbnail_url} alt="video_thumbnail" />
+              </Link>
             </div>
             <div className="v-card-side-content">
               <div className="card-product-bottom">
@@ -49,14 +68,8 @@ export default function PlaylistsDetailMain() {
                     <p className="v-card-product-name">{item.title}</p>
                     <div className="v-card-side-delete">
                       <i
-                        class="fas fa-times"
-                        // onClick={() =>
-                        //   dispatch({
-                        //     type: "DELETE_FROM_HISTORY",
-                        //     payload: videos._id,
-                        //   })
-                        // }
-                        // onClick={() => deleteWatchHandler(videos)}
+                        className="fas fa-times"
+                        onClick={() => deletePlayListHandler(item)}
                       ></i>
                     </div>
                   </div>

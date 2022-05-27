@@ -1,5 +1,5 @@
 import "./App.css";
-import logo from "./logo.png";
+
 import HomePage from "./pages/home-page/HomePage";
 import VideoPage from "./pages/video-page/VideoPage";
 import { Route, Routes } from "react-router-dom";

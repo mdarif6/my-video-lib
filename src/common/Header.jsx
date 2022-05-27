@@ -31,15 +31,15 @@ export default function Header() {
           }
         />
         <button className="v-search-button" type="submit">
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
         </button>
       </div>
       <div className="v-user-profile">
         {authState.isAuthenticated ? (
-          <i class="fas fa-power-off" onClick={logoutHandler}></i>
+          <i className="fas fa-power-off" onClick={logoutHandler}></i>
         ) : (
           <Link className="link-style" to="/login">
-            <i class="fas fa-user-circle"></i>
+            <i className="fas fa-user-circle"></i>
           </Link>
         )}
       </div>

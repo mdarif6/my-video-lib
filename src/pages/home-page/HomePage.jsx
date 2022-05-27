@@ -1,4 +1,3 @@
-import card_img from "../../assets/images/card_image.jpg";
 import React from "react";
 import "./HomePage.css";
 import Header from "../../common/Header";

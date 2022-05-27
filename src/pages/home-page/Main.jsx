@@ -10,7 +10,7 @@ export default function Main() {
     (async function showVideos() {
       try {
         const response = await axios.get("api/videos");
-        console.log(response);
+
         if (response.status === 200 || response.status === 201) {
           dispatch({ type: "SET_VIDEOS", payload: response.data.videos });
         }

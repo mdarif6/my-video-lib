@@ -8,7 +8,7 @@ export default function Aside() {
         <div className="v-aside-content-and-icons">
           <Link className="link-style link-menu" to="/">
             <div className="v-aside-icon">
-              <i class="fas fa-home"></i>
+              <i className="fas fa-home"></i>
             </div>
             <div className="v-aside-link">Home</div>
           </Link>
@@ -16,7 +16,7 @@ export default function Aside() {
         <div className="v-aside-content-and-icons">
           <Link className="link-style  link-menu" to="/history">
             <div>
-              <i class="fas fa-history"></i>
+              <i className="fas fa-history"></i>
             </div>
 
             <div className="v-aside-link">History</div>
@@ -25,7 +25,7 @@ export default function Aside() {
         <div className="v-aside-content-and-icons">
           <Link className="link-style link-menu" to="/watchlater">
             <div>
-              <i class="far fa-clock"></i>
+              <i className="far fa-clock"></i>
             </div>
 
             <div className="v-aside-link">Watch Later</div>
@@ -34,7 +34,7 @@ export default function Aside() {
         <div className="v-aside-content-and-icons">
           <Link className="link-style link-menu" to="/like">
             <div>
-              <i class="far fa-thumbs-up"></i>
+              <i className="far fa-thumbs-up"></i>
             </div>
 
             <div className="v-aside-link">Liked Videos</div>
@@ -43,7 +43,7 @@ export default function Aside() {
         <div className="v-aside-content-and-icons">
           <Link className="link-style link-menu" to="/playlist">
             <div>
-              <i class="fas fa-play"></i>
+              <i className="fas fa-play"></i>
             </div>
 
             <div className="v-aside-link">Play List</div>

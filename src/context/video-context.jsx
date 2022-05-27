@@ -61,7 +61,7 @@ function videoReducer(state, action) {
     case "ADD_TO_WATCHLATER":
       return {
         ...state,
-        watchlater: [...state.watchlater, { ...action.payload }],
+        watchlater: action.payload,
       };
 
     case "DELETE_FROM_WATCHLATER":
@@ -70,8 +70,6 @@ function videoReducer(state, action) {
       );
       return { ...state, watchlater: updatedWatchlater };
     case "ADD_TO_LIKED":
-      // return { ...state, liked: [...state.liked, { ...action.payload }] };
-
       return { ...state, liked: action.payload };
 
     case "ADD_TO_PLAYLIST":
@@ -83,6 +81,15 @@ function videoReducer(state, action) {
       return {
         ...state,
         playlistDetail: action.payload,
+      };
+
+    case "DELETE_FROM_PLAYLIST_DETAIL":
+      const updatedPlayListDetail = state.playlistDetail.filter(
+        (item) => item._id !== action.payload
+      );
+      return {
+        ...state,
+        playlistDetail: updatedPlayListDetail,
       };
 
     default:

@@ -13,8 +13,6 @@ export default function LoginMain() {
 
   async function submitHandler(e) {
     e.preventDefault();
-    console.log("clicked");
-    console.log(email, password);
 
     try {
       const response = await axios.post("/api/auth/login", {
@@ -27,8 +25,6 @@ export default function LoginMain() {
         navigate("/");
         dispatch({ type: "SET_AUTH", payload: true });
       }
-
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -49,19 +45,6 @@ export default function LoginMain() {
       console.log(error);
     }
   }
-  // async function submitHandler(e) {
-  //   e.prventDefault();
-  //   console.log(email, password);
-
-  //   try {
-  //     const response = await axios.post("/api/auth/login", {
-  //       email: email,
-  //       password: password,
-  //     });
-
-  //     console.log(response);
-  //   } catch (error) {}
-  // }
 
   return (
     <div className="v-main">

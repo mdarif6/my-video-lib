@@ -18,7 +18,7 @@ export default function PlaylistMain() {
             authorization: token,
           },
         });
-        console.log(response);
+
         if (response.status === 200) {
           dispatch({
             type: "ADD_TO_PLAYLIST",
@@ -31,33 +31,7 @@ export default function PlaylistMain() {
     })();
   }, []);
 
-  // async function playlistSendHandler(videoSendToPlayList) {
-  //   let token = localStorage.getItem("authToken");
-  //   try {
-  //     const response = await axios.post(
-  //       `/api/user/playlists/${playlistID}`,
-  //       {
-  //         video: videoSendToPlayList,
-  //       },
-  //       {
-  //         headers: {
-  //           authorization: token,
-  //         },
-  //       }
-  //     );
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
   return (
-    // <div>
-    //   {state.playlists.map((item) => {
-    //     return <div className="playlistname">{item.title}</div>;
-    //   })}
-    // </div>
-
     <div className="v-playlist-wrapper">
       <div className="v-watchlater-heading">PlayLists</div>
 
@@ -67,14 +41,9 @@ export default function PlaylistMain() {
       <div className="v-playlist-cards">
         {state.playlists.map((item) => {
           return (
-            <div>
+            <div key={item._id}>
               <Link className="link-style" to={`/playlist/${item._id}`}>
-                <div
-                  className="v-playlistname"
-                  // onClick={() => playlistSendHandler(item)}
-                >
-                  {item.title}
-                </div>
+                <div className="v-playlistname">{item.title}</div>
               </Link>
             </div>
           );

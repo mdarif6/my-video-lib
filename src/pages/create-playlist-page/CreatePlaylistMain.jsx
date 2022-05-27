@@ -35,7 +35,7 @@ export default function CreatePlaylistMain() {
 
         <div className="v-add-playlist">
           <i
-            class="fas fa-plus"
+            className="fas fa-plus"
             onClick={() => setCreatePlayList(!createPlayList)}
           ></i>
           <p>Create new playlist</p>

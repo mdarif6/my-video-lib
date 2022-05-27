@@ -1,9 +1,8 @@
-import card_img from "../../assets/images/card_image.jpg";
 import React from "react";
 import { useVideo } from "../../context/video-context";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useEffect } from "react";
+
 import axios from "axios";
 import Modal from "../modal/Modal";
 
@@ -30,7 +29,6 @@ export default function VideoCard({ item }) {
           },
         }
       );
-      console.log("watchlater", response);
     } catch (error) {
       console.log(error);
     }
@@ -50,7 +48,7 @@ export default function VideoCard({ item }) {
           },
         }
       );
-      console.log("history", response);
+
       if (response.status === 201) {
         dispatch({ type: "ADD_TO_HISTORY", payload: item });
       }
@@ -78,14 +76,13 @@ export default function VideoCard({ item }) {
               <div className="v-card-menu">
                 <div className="v-card-icons-with-menu">
                   <div>
-                    <i class="far fa-clock"></i>
+                    <i className="far fa-clock"></i>
                   </div>
                   <div
-                    onClick={() => watchLaterHandler(item)}
-                    // onClick={() => {
-                    //   dispatch({ type: "ADD_TO_WATCHLATER", payload: item });
-                    //   setShowMenu(false);
-                    // }}
+                    onClick={() => {
+                      watchLaterHandler(item);
+                      setShowMenu(false);
+                    }}
                   >
                     Save to watch later
                   </div>
@@ -96,7 +93,7 @@ export default function VideoCard({ item }) {
                   onClick={showModalHandler}
                 >
                   <div>
-                    <i class="fas fa-play"></i>
+                    <i className="fas fa-play"></i>
                   </div>
                   <div>Save to playlist</div>
                 </div>
@@ -105,7 +102,7 @@ export default function VideoCard({ item }) {
 
                 <div className="v-card-icons-with-menu">
                   <div>
-                    <i class="fas fa-share"></i>
+                    <i className="fas fa-share"></i>
                   </div>
                   <div>Share</div>
                 </div>
@@ -120,7 +117,6 @@ export default function VideoCard({ item }) {
         <Link to={`/video/${item._id}`}>
           <button
             className="card-foot-btn card-btn-ecom"
-            // onClick={() => dispatch({ type: "ADD_TO_HISTORY", payload: item })}
             onClick={() => historyHandler(item)}
           >
             Watch this video

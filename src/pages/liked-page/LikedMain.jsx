@@ -16,7 +16,7 @@ export default function LikedMain() {
             authorization: token,
           },
         });
-        console.log("Api data like", response.data);
+
         if (response.status === 200 || response.status === 201) {
           dispatch({ type: "ADD_TO_LIKED", payload: response.data.likes });
         }
@@ -34,7 +34,7 @@ export default function LikedMain() {
           state.liked.length > 0 &&
           state.liked.map((videos) => {
             return (
-              <div className="v-card card-ecom">
+              <div className="v-card card-ecom" key={videos._id}>
                 <img src={videos.thumbnail_url} alt="card_image" />
                 <div className="card-product-bottom">
                   <div className="card-details">

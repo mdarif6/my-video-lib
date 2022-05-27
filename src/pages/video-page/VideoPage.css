@@ -45,6 +45,9 @@
   display: flex;
   gap: 2rem;
 }
+.v-social-icon {
+  cursor: pointer;
+}
 @media only screen and (max-width: 800px) {
   .v-playing-video-and-asidelist {
     display: flex;
