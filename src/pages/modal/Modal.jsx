@@ -3,7 +3,7 @@ import "./Modal.css";
 import { useState } from "react";
 import { useVideo } from "../../context/video-context";
 import axios from "axios";
-export default function Modal({ setShowModal, item }) {
+export default function Modal({ setShowModal, setShowMenu, item }) {
   const [createPlayList, setCreatePlayList] = useState(false);
   const [name, setName] = useState("");
   const { state, dispatch } = useVideo();
@@ -76,7 +76,10 @@ export default function Modal({ setShowModal, item }) {
             <i
               id="drop-down"
               className="fas fa-times"
-              onClick={() => setShowModal(false)}
+              onClick={() => {
+                setShowModal(false);
+                setShowMenu(false);
+              }}
             ></i>
           </div>
         </div>

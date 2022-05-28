@@ -23,7 +23,7 @@ export default function VideoListAside() {
                   </div>
                 </div>
                 <p className="card-subtitle v-card-product-desc">
-                  6K Views | 4 hours ago
+                  {video.views} views | {video.createdTime} ago
                 </p>
               </div>
 

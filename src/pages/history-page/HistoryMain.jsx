@@ -109,7 +109,7 @@ export default function HistoryMain() {
                       </div>
                     </div>
                     <p className="card-subtitle v-card-product-desc">
-                      6K Views | 4 hours ago
+                      {videos.views} views | {videos.createdTime} ago
                     </p>
                   </div>
                 </div>

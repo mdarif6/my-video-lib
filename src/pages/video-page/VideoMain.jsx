@@ -30,8 +30,24 @@ export default function VideoMain() {
       );
 
       if (response.status === 201) {
-        dispatch({ type: "ADD_TO_LIKED", payload: videoPlay });
+        dispatch({ type: "ADD_TO_LIKED", payload: response.data.likes });
       }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function disLikeHandler(videoToDislike) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.delete(
+        `/api/user/likes/${videoToDislike._id}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -51,10 +67,6 @@ export default function VideoMain() {
           },
         }
       );
-
-      if (response.status === 201) {
-        dispatch({ type: "ADD_TO_WATCHLATER", payload: videoPlay });
-      }
     } catch (error) {
       console.log(error);
     }
@@ -80,20 +92,31 @@ export default function VideoMain() {
           <div className="v-video-bottom">
             <div className="v-bottom-title">{videoPlay.title}</div>
             <div className="v-bottom-date-and-menu">
-              <div className="v-bottom-date">April 15, 2021</div>
+              <div className="v-bottom-date">{videoPlay.createdAt}</div>
               <div className="v-bottom-menu">
-                <div className="v-social-icon">
-                  <i
-                    className="far fa-thumbs-up"
+                {state.liked.some((item) => item._id === videoPlay._id) ? (
+                  <div
+                    className="v-social-icon"
+                    onClick={() => disLikeHandler(videoPlay)}
+                  >
+                    <i className="fas fa-thumbs-down"></i>
+                    Like
+                  </div>
+                ) : (
+                  <div
+                    className="v-social-icon"
                     onClick={() => likeHandler(videoPlay)}
-                  ></i>
-                  Like
-                </div>
-                <div className="v-social-icon">
-                  <i
-                    className="far fa-clock"
-                    onClick={() => watchLaterHandler(videoPlay)}
-                  ></i>
+                  >
+                    <i className="far fa-thumbs-up"></i>
+                    Like
+                  </div>
+                )}
+
+                <div
+                  className="v-social-icon"
+                  onClick={() => watchLaterHandler(videoPlay)}
+                >
+                  <i className="far fa-clock"></i>
                   Watch Later
                 </div>
                 <div className="v-social-icon">
@@ -119,7 +142,7 @@ export default function VideoMain() {
                       </div>
                     </div>
                     <p className="card-subtitle v-card-product-desc">
-                      6K Views | 4 hours ago
+                      {video.views} views | {video.createdTime} ago
                     </p>
                   </div>
 

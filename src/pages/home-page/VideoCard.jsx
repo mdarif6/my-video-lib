@@ -98,7 +98,13 @@ export default function VideoCard({ item }) {
                   <div>Save to playlist</div>
                 </div>
 
-                {showModal && <Modal setShowModal={setShowModal} item={item} />}
+                {showModal && (
+                  <Modal
+                    setShowMenu={setShowMenu}
+                    setShowModal={setShowModal}
+                    item={item}
+                  />
+                )}
 
                 <div className="v-card-icons-with-menu">
                   <div>
@@ -110,7 +116,7 @@ export default function VideoCard({ item }) {
             </div>
           )}
           <p className="card-subtitle v-card-product-desc">
-            6K Views | 4 hours ago
+            {item.views} views | {item.createdTime} ago
           </p>
         </div>
 

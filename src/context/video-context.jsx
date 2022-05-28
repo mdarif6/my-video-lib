@@ -72,6 +72,11 @@ function videoReducer(state, action) {
     case "ADD_TO_LIKED":
       return { ...state, liked: action.payload };
 
+    case "DELETE_FROM_LIKED":
+      const updatedLiked = state.liked.filter(
+        (item) => item._id == action.payload
+      );
+      return { ...state, liked: updatedLiked };
     case "ADD_TO_PLAYLIST":
       return {
         ...state,

@@ -53,9 +53,7 @@
     display: flex;
     flex-direction: column;
   }
-  .v-bottom-date {
-    display: none;
-  }
+
   .v-bottom-date-and-menu {
     display: flex;
     justify-content: space-around;

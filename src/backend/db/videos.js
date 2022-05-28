@@ -15,6 +15,9 @@ export const videos = [
     videoid: "ETsoVaNA2_E",
     thumbnail_url: "https://img.youtube.com/vi/ETsoVaNA2_E/mqdefault.jpg",
     category: "History",
+    createdAt: "15,April 2021",
+    createdTime: "4 hours",
+    views: "6K",
   },
 
   {
@@ -27,6 +30,9 @@ export const videos = [
     videoid: "lhYUc9g6r9A",
     thumbnail_url: "https://img.youtube.com/vi/lhYUc9g6r9A/mqdefault.jpg",
     category: "History",
+    createdAt: "19,May 2022",
+    createdTime: "5 days",
+    views: "327K",
   },
   {
     _id: uuid(),
@@ -38,6 +44,9 @@ export const videos = [
     videoid: "mrA_6HuoIQo",
     thumbnail_url: "https://img.youtube.com/vi/mrA_6HuoIQo/mqdefault.jpg",
     category: "History",
+    createdAt: "5,Feb 2022",
+    createdTime: "1 year",
+    views: "848K",
   },
   {
     _id: uuid(),
@@ -49,6 +58,9 @@ export const videos = [
     videoid: "qGJvxRynRSY",
     thumbnail_url: "https://img.youtube.com/vi/qGJvxRynRSY/mqdefault.jpg",
     category: "History",
+    createdAt: "5,March 2021",
+    createdTime: "2 hours",
+    views: "1.4K",
   },
   {
     _id: uuid(),
@@ -59,6 +71,9 @@ export const videos = [
     videoid: "MMWmsypPKNM",
     thumbnail_url: "https://img.youtube.com/vi/MMWmsypPKNM/mqdefault.jpg",
     category: "History",
+    createdAt: "15,April 2021",
+    createdTime: "1 year",
+    views: "5.5M",
   },
   {
     _id: uuid(),
@@ -70,6 +85,9 @@ export const videos = [
     videoid: "iGJF4idquU8",
     thumbnail_url: "https://img.youtube.com/vi/iGJF4idquU8/mqdefault.jpg",
     category: "History",
+    createdAt: "8,July 2021",
+    createdTime: "2 months",
+    views: "1.9M",
   },
   {
     _id: uuid(),
@@ -80,6 +98,9 @@ export const videos = [
     videoid: "kx3wjYB1xNA",
     thumbnail_url: "https://img.youtube.com/vi/kx3wjYB1xNA/mqdefault.jpg",
     category: "Food",
+    createdAt: "23,Jan 2022",
+    createdTime: "3 years",
+    views: "119K",
   },
   {
     _id: uuid(),
@@ -91,6 +112,9 @@ export const videos = [
     videoid: "N9b_EoZJxsw",
     thumbnail_url: "https://img.youtube.com/vi/N9b_EoZJxsw/mqdefault.jpg",
     category: "Food",
+    createdAt: "22,Aug 2021",
+    createdTime: "5 months",
+    views: "1M",
   },
   {
     _id: uuid(),
@@ -102,5 +126,8 @@ export const videos = [
     videoid: "CTpN5XbY9Uo&t=23s",
     thumbnail_url: "https://img.youtube.com/vi/CTpN5XbY9Uo/mqdefault.jpg",
     category: "Road Trip",
+    createdAt: "4,Dec 2021",
+    createdTime: "2 years",
+    views: "4M",
   },
 ];

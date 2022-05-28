@@ -52,7 +52,7 @@ export default function PlaylistsDetailMain() {
 
   return (
     <div className="v-watchlater-wrapper">
-      <div className="v-watchlater-heading">Specific PlayList</div>
+      <div className="v-watchlater-heading">PlayList Videos</div>
       {state.playlistDetail.map((item) => {
         return (
           <div className="v-history-videos" key={item._id}>
@@ -74,7 +74,7 @@ export default function PlaylistsDetailMain() {
                     </div>
                   </div>
                   <p className="card-subtitle v-card-product-desc">
-                    6K Views | 4 hours ago
+                    {item.views} views | {item.createdTime} ago
                   </p>
                 </div>
               </div>
