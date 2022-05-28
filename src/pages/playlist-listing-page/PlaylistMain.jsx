@@ -31,6 +31,22 @@ export default function PlaylistMain() {
     })();
   }, []);
 
+  async function deletePlayListsHandler(playListToDelete) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.delete(
+        `/api/user/playlists/${playListToDelete._id}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="v-playlist-wrapper">
       <div className="v-watchlater-heading">PlayLists</div>
@@ -43,7 +59,17 @@ export default function PlaylistMain() {
           return (
             <div key={item._id}>
               <Link className="link-style" to={`/playlist/${item._id}`}>
-                <div className="v-playlistname">{item.title}</div>
+                <div className="v-playlist-wrapper">
+                  <div className="v-playlistname">{item.title}</div>
+                  <div className="v-delete-btn">
+                    <button
+                      className="v-playlist-delete-btn"
+                      onClick={() => deletePlayListsHandler(item)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
               </Link>
             </div>
           );

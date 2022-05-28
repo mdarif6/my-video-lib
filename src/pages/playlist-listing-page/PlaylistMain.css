@@ -15,3 +15,20 @@
   background-color: var(--v-gray-color);
   color: white;
 }
+.v-delete-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.v-playlist-delete-btn {
+  padding: 0.5rem;
+
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.v-playlist-delete-btn:hover {
+  background-color: var(--v-gray-color);
+  color: var(--v-white-color);
+}
