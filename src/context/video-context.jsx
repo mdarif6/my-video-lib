@@ -82,14 +82,6 @@ function videoReducer(state, action) {
         ...state,
         playlists: action.payload,
       };
-    // case "DELETE_FROM_PLAYLIST":
-    //   const updatedPlayLists = state.playlists.filter((item) => {
-    //     item._id !== action.payload;
-    //   });
-    //   return {
-    //     ...state,
-    //     playlists: updatedPlayLists,
-    //   };
 
     case "ADD_TO_PLAYLIST_DETAIL":
       return {
