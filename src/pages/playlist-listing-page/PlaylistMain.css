@@ -1,0 +1,34 @@
+.v-playlist-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.v-playlistname {
+  font-weight: bold;
+  height: 100px;
+  width: 200px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--v-gray-color);
+  color: white;
+}
+.v-delete-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.v-playlist-delete-btn {
+  padding: 0.5rem;
+
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.v-playlist-delete-btn:hover {
+  background-color: var(--v-gray-color);
+  color: var(--v-white-color);
+}

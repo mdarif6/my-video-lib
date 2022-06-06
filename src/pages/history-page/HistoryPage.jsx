@@ -12,7 +12,7 @@ export default function HistoryPage() {
       {/* <Nav /> */}
       <Aside />
       <HistoryMain />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

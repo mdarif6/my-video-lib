@@ -1,39 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useVideo } from "../../context/video-context";
 import axios from "axios";
+import { useVideo } from "../../context/video-context";
 
-export default function WatchMain() {
+export default function PlaylistsDetailMain() {
+  const { playlistID } = useParams();
   const { state, dispatch } = useVideo();
 
   useEffect(() => {
-    (async function showWatchLater() {
+    (async function showPlaylistDetails() {
       let token = localStorage.getItem("authToken");
-      try {
-        const response = await axios.get("/api/user/watchlater", {
-          headers: {
-            authorization: token,
-          },
-        });
+      const response = await axios.get(`/api/user/playlists/${playlistID}`, {
+        headers: {
+          authorization: token,
+        },
+      });
 
-        if (response.status === 200 || response.status === 201) {
-          dispatch({
-            type: "ADD_TO_WATCHLATER",
-            payload: response.data.watchlater,
-          });
-        }
+      if (response.status === 200) {
+        dispatch({
+          type: "ADD_TO_PLAYLIST_DETAIL",
+          payload: response.data.playlist.videos,
+        });
+      }
+      try {
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
 
-  async function deleteWatchHandler(deleteWatchVideos) {
+  async function deletePlayListHandler(item) {
     let token = localStorage.getItem("authToken");
     try {
       const response = await axios.delete(
-        `/api/user/watchlater/${deleteWatchVideos._id}`,
+        `/api/user/playlists/${playlistID}/${item._id}`,
         {
           headers: {
             authorization: token,
@@ -42,10 +43,7 @@ export default function WatchMain() {
       );
 
       if (response.status === 200) {
-        dispatch({
-          type: "DELETE_FROM_WATCHLATER",
-          payload: deleteWatchVideos._id,
-        });
+        dispatch({ type: "DELETE_FROM_PLAYLIST_DETAIL", payload: item._id });
       }
     } catch (error) {
       console.log(error);
@@ -54,30 +52,29 @@ export default function WatchMain() {
 
   return (
     <div className="v-watchlater-wrapper">
-      <div className="v-watchlater-heading">Watch Later</div>
-
-      {state.watchlater.map((videos) => {
+      <div className="v-watchlater-heading">PlayList Videos</div>
+      {state.playlistDetail.map((item) => {
         return (
-          <div className="v-history-videos" key={videos._id}>
+          <div className="v-history-videos" key={item._id}>
             <div className="v-card card-ecom">
-              <Link to={`/video/${videos._id}`}>
-                <img src={videos.thumbnail_url} alt="video_thumbnail" />
+              <Link to={`/video/${item._id}`}>
+                <img src={item.thumbnail_url} alt="video_thumbnail" />
               </Link>
             </div>
             <div className="v-card-side-content">
               <div className="card-product-bottom">
                 <div className="card-details">
                   <div className="v-side-icon-wraper">
-                    <p className="v-card-product-name">{videos.title}</p>
+                    <p className="v-card-product-name">{item.title}</p>
                     <div className="v-card-side-delete">
                       <i
                         className="fas fa-times"
-                        onClick={() => deleteWatchHandler(videos)}
+                        onClick={() => deletePlayListHandler(item)}
                       ></i>
                     </div>
                   </div>
                   <p className="card-subtitle v-card-product-desc">
-                    {videos.views} views | {videos.createdTime} ago
+                    {item.views} views | {item.createdTime} ago
                   </p>
                 </div>
               </div>

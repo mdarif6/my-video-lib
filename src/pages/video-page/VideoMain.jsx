@@ -1,20 +1,77 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import video_img from "../../assets/images/video_main.jpg";
+import { useEffect } from "react";
+
 import { useVideo } from "../../context/video-context";
+import axios from "axios";
 
 export default function VideoMain() {
   const { state, dispatch } = useVideo();
   const { videoID } = useParams();
-  console.log(videoID);
-  console.log(state.videos);
 
   let asideVideos = state.videos.filter((item) => item._id !== videoID);
   let spliceVideos = asideVideos.splice(0, 4);
-  console.log(asideVideos);
 
   let videoPlay = state.videos.find((video) => video._id === videoID);
-  console.log(videoPlay);
+
+  async function likeHandler(videoToSend) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.post(
+        "/api/user/likes",
+        {
+          video: videoToSend,
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        dispatch({ type: "ADD_TO_LIKED", payload: response.data.likes });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function disLikeHandler(videoToDislike) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.delete(
+        `/api/user/likes/${videoToDislike._id}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function watchLaterHandler(videoToWatchLater) {
+    let token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.post(
+        "/api/user/watchlater",
+        {
+          video: videoToWatchLater,
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="v-video-main">
       <div className="v-playing-video-and-asidelist">
@@ -33,11 +90,40 @@ export default function VideoMain() {
             </div>
           </div>
           <div className="v-video-bottom">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-            a asperiores ipsum, odio enim consequatur, aspernatur ducimus
-            dolorum dolorem non ad rerum est quasi quisquam dolore esse odit
-            vero atque! dolorem non ad rerum est quasi quisquam dolore esse odit
-            vero atque!
+            <div className="v-bottom-title">{videoPlay.title}</div>
+            <div className="v-bottom-date-and-menu">
+              <div className="v-bottom-date">{videoPlay.createdAt}</div>
+              <div className="v-bottom-menu">
+                {state.liked.some((item) => item._id === videoPlay._id) ? (
+                  <div
+                    className="v-social-icon"
+                    onClick={() => disLikeHandler(videoPlay)}
+                  >
+                    <i className="fas fa-thumbs-down"></i>
+                    Like
+                  </div>
+                ) : (
+                  <div
+                    className="v-social-icon"
+                    onClick={() => likeHandler(videoPlay)}
+                  >
+                    <i className="far fa-thumbs-up"></i>
+                    Like
+                  </div>
+                )}
+
+                <div
+                  className="v-social-icon"
+                  onClick={() => watchLaterHandler(videoPlay)}
+                >
+                  <i className="far fa-clock"></i>
+                  Watch Later
+                </div>
+                <div className="v-social-icon">
+                  <i className="far fa-bookmark"></i> Save
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         {/* aside */}
@@ -45,7 +131,7 @@ export default function VideoMain() {
         <div className="v-videolist-aside">
           {spliceVideos.map((video) => {
             return (
-              <div className="v-card card-ecom">
+              <div className="v-card card-ecom" key={video._id}>
                 <img src={video.thumbnail_url} alt="card_image" />
                 <div className="card-product-bottom">
                   <div className="card-details">
@@ -56,7 +142,7 @@ export default function VideoMain() {
                       </div>
                     </div>
                     <p className="card-subtitle v-card-product-desc">
-                      6K Views | 4 hours ago
+                      {video.views} views | {video.createdTime} ago
                     </p>
                   </div>
 

@@ -9,8 +9,10 @@
 /* ***************** */
 
 /* Video Main Details */
+
 .v-video-wraper {
   padding: 1rem;
+  min-width: 700px;
 }
 .v-video-wraper img {
   width: 100%;
@@ -20,6 +22,7 @@
 }
 .v-playing-video-and-asidelist {
   display: flex;
+  gap: 2rem;
 }
 
 .v-videolist-aside {
@@ -28,10 +31,43 @@
   gap: 1rem;
   padding: 1rem;
 }
-
+.v-bottom-title {
+  padding: 1rem 0;
+}
+.v-bottom-date-and-menu {
+  display: flex;
+  padding: 1rem 0;
+}
+.v-bottom-date-and-menu div:last-child {
+  margin-left: auto;
+}
+.v-bottom-menu {
+  display: flex;
+  gap: 2rem;
+}
+.v-social-icon {
+  cursor: pointer;
+}
 @media only screen and (max-width: 800px) {
   .v-playing-video-and-asidelist {
     display: flex;
     flex-direction: column;
+  }
+
+  .v-bottom-date-and-menu {
+    display: flex;
+    justify-content: space-around;
+  }
+  .v-bottom-date-and-menu div:last-child {
+    margin: 0;
+  }
+  .v-video-wraper {
+    min-width: fit-content;
+  }
+  .v-video-wraper iframe {
+    height: 250px;
+  }
+  .v-videolist-aside {
+    align-items: center;
   }
 }
