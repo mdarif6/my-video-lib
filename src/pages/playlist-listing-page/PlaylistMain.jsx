@@ -51,9 +51,6 @@ export default function PlaylistMain() {
     <div className="v-playlist-wrapper">
       <div className="v-watchlater-heading">PlayLists</div>
 
-      {/* <Link to={`/video/${videos._id}`}>
-            <img src={videos.thumbnail_url} alt="video_thumbnail" />
-          </Link> */}
       <div className="v-playlist-cards">
         {state.playlists.map((item) => {
           return (

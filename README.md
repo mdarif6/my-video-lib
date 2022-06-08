@@ -37,7 +37,6 @@ $ npm start
 - Watch Later Page - User can delete the video from Watch Later.
 - Watch History Page - User can delete the video from Watch History and can even Clear Watch History.
 - Liked Videos Page - User can delete the video from Liked Videos.
-
 - All the screens are Responsive.
 
 ## Tech Stack and Tools
@@ -46,12 +45,12 @@ $ npm start
 - React Router v6
 - React Context API + useReducer
 - Vanilla CSS integrated with [Panda UI](https://pandaui.netlify.app/) Component Library
-<!-- - Git For Version Control -->
 - Netlify for Deployment
-<!-- - React Player -->
 
 ## Live Link
 
-[My TV18]()
+[My TV18](https://mytv18.netlify.app/)
 
 ## Demo Video
+
+https://user-images.githubusercontent.com/83090490/172641740-f10c0172-6deb-470d-9933-913afff303e7.mp4
