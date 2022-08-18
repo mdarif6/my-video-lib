@@ -6,6 +6,7 @@ import axios from "axios";
 
 export default function SignMain() {
   const [register, setRegister] = useState({ email: "", password: "" });
+  const [isChecked, setIsChecked] = useState(false);
   const { dispatch } = useAuth();
   const navigate = useNavigate();
   async function formSubmitHandler(e) {
@@ -20,6 +21,10 @@ export default function SignMain() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function handleCheckBox() {
+    setIsChecked(!isChecked);
   }
 
   return (
@@ -59,13 +64,23 @@ export default function SignMain() {
                   type="checkbox"
                   name="consent"
                   id="consent"
-                  value="remember"
+                  onChange={handleCheckBox}
                 />
                 <label for="consent">I accept all terms & conditions</label>
               </div>
             </div>
             <a href="#">
-              <button className="btn btn-primary">Create New Account</button>
+              <button
+                className={
+                  register.email.length > 0 &&
+                  register.password.length > 0 &&
+                  isChecked === true
+                    ? "btn btn-primary "
+                    : "btn btn-primary disabled-btn"
+                }
+              >
+                Create New Account
+              </button>
             </a>
 
             <div className="login-bottom-text">

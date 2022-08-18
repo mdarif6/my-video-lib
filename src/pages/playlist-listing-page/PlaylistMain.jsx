@@ -49,7 +49,7 @@ export default function PlaylistMain() {
 
   return (
     <div className="v-playlist-wrapper">
-      <div className="v-watchlater-heading">PlayLists</div>
+      <div className="page-title">PlayLists</div>
 
       <div className="v-playlist-cards">
         {state.playlists.map((item) => {

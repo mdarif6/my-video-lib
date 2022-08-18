@@ -28,6 +28,7 @@ export default function LikedMain() {
 
   return (
     <div className="v-liked-videos-main">
+      <div className="page-title">Liked Vidos</div>
       <div className="v-liked-heading">Liked Videos ({state.liked.length})</div>
       <div className="v-liked-wrapper">
         {state.liked &&

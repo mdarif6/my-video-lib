@@ -69,7 +69,7 @@ export default function LoginMain() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="login-check">
+            {/* <div className="login-check">
               <div className="login-check-label">
                 <input
                   type="checkbox"
@@ -82,9 +82,17 @@ export default function LoginMain() {
               <div>
                 <a href="#">Forgot Your Password ?</a>
               </div>
-            </div>
+            </div> */}
             <a href="#">
-              <button className="btn btn-primary">Login</button>
+              <button
+                className={
+                  email.length > 0 && password.length > 0
+                    ? "btn btn-primary "
+                    : "btn btn-primary disabled-btn"
+                }
+              >
+                Login
+              </button>
             </a>
             <a href="#">
               <button className="btn outline-primary" onClick={loginAsGuest}>

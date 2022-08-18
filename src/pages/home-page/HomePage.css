@@ -96,13 +96,21 @@ span {
 .v-aside-content-and-icons {
   padding: 1rem;
 }
+.active-link {
+  background-color: var(--v-primary-color);
+  color: var(--v-white-color);
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
 .link-menu {
   padding: 0.5rem;
   display: flex;
   gap: 1rem;
 }
 .link-menu:hover {
-  background-color: var(--v-secondary-color);
+  background-color: var(--v-primary-color);
+  border-radius: 0.5rem;
+  color: var(--v-white-color);
 }
 
 .v-chip-wraper {
@@ -134,7 +142,6 @@ span {
 
 .v-card {
   width: 300px;
-
   background-color: var(--pd-white-color);
 }
 
@@ -270,6 +277,11 @@ span {
   cursor: pointer;
 }
 
+.page-title {
+  color: var(--v-primary-color);
+  font-weight: bold;
+}
+
 /* Liked Videos Page */
 .v-liked-heading {
   padding: 1rem 0;
@@ -278,6 +290,7 @@ span {
 .v-liked-wrapper {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 /* playlist create page */
 .v-playlist-main {
@@ -385,5 +398,14 @@ span {
   }
   .v-history-videos {
     flex-direction: column;
+  }
+  .v-aside-content-and-icons {
+    padding: 0.5rem;
+  }
+  .v-chip {
+    padding: 0.5rem 0.9rem;
+  }
+  .v-card {
+    margin: auto;
   }
 }
