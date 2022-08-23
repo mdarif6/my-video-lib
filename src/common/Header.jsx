@@ -39,7 +39,7 @@ export default function Header() {
           <i className="fas fa-power-off" onClick={logoutHandler}></i>
         ) : (
           <Link className="link-style" to="/login">
-            <i className="fas fa-user-circle"></i>
+            <button className="btn btn-primary-login">Login</button>
           </Link>
         )}
       </div>

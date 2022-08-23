@@ -69,20 +69,7 @@ export default function LoginMain() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            {/* <div className="login-check">
-              <div className="login-check-label">
-                <input
-                  type="checkbox"
-                  name="consent"
-                  id="consent"
-                  value="remember"
-                />
-                <label for="consent">Remember me</label>
-              </div>
-              <div>
-                <a href="#">Forgot Your Password ?</a>
-              </div>
-            </div> */}
+
             <a href="#">
               <button
                 className={

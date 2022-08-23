@@ -15,10 +15,10 @@
 }
 .v-input-text label {
   text-align: left;
+  padding: 0;
 }
 .v-input-text input {
-  padding: 1rem;
-  /* margin: 0 1rem; */
+  padding: 0.9rem;
 }
 .login-check {
   display: flex;
@@ -27,6 +27,13 @@
 .btn-primary {
   margin: 1rem 0 0.5rem 0;
   width: 100%;
+  background-color: var(--v-primary-color);
+}
+
+.btn-primary-login {
+  display: flex;
+  justify-content: center;
+  margin: 0;
   background-color: var(--v-primary-color);
 }
 .btn-primary:hover {

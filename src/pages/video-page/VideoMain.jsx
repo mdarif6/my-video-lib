@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
-
 import { useVideo } from "../../context/video-context";
 import axios from "axios";
 import Modal from "../modal/Modal";
@@ -40,7 +38,7 @@ export default function VideoMain({ item }) {
           },
         }
       );
-      console.log(response, "likes");
+
       if (response.status === 201) {
         dispatch({ type: "ADD_TO_LIKED", payload: response.data.likes });
       }
@@ -60,7 +58,7 @@ export default function VideoMain({ item }) {
           },
         }
       );
-      console.log(response, "dislike");
+
       if (response.status === 200) {
         dispatch({ type: "ADD_TO_LIKED", payload: response.data.likes });
       }
@@ -158,19 +156,6 @@ export default function VideoMain({ item }) {
                   </div>
                 )}
 
-                {authState.isAuthenticated ? (
-                  <div className="v-social-icon" onClick={showModalHandler}>
-                    <i className="far fa-bookmark"></i> Save
-                  </div>
-                ) : (
-                  <div
-                    className="v-social-icon social-link"
-                    onClick={goOnLogin}
-                  >
-                    <i className="far fa-bookmark"></i> Save
-                  </div>
-                )}
-
                 {showModal && (
                   <Modal
                     setShowMenu={setShowMenu}
@@ -213,8 +198,6 @@ export default function VideoMain({ item }) {
           })}
         </div>
       </div>
-
-      {/* aside */}
     </div>
   );
 }

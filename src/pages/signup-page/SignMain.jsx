@@ -78,6 +78,13 @@ export default function SignMain() {
                     ? "btn btn-primary "
                     : "btn btn-primary disabled-btn"
                 }
+                disabled={
+                  register.email.length > 0 &&
+                  register.password.length > 0 &&
+                  isChecked === true
+                    ? false
+                    : true
+                }
               >
                 Create New Account
               </button>
