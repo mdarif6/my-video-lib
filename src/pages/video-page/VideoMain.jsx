@@ -1,14 +1,24 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
-import { useEffect } from "react";
-
+import React, { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useVideo } from "../../context/video-context";
 import axios from "axios";
+import Modal from "../modal/Modal";
+import { useAuth } from "../../context/auth-context";
 
-export default function VideoMain() {
+export default function VideoMain({ item }) {
   const { state, dispatch } = useVideo();
+  const { state: authState, dispatch: authDispatch } = useAuth();
   const { videoID } = useParams();
+  const [showModal, setShowModal] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
 
+  function showModalHandler() {
+    setShowModal(true);
+  }
+  function goOnLogin() {
+    navigate("/login");
+  }
   let asideVideos = state.videos.filter((item) => item._id !== videoID);
   let spliceVideos = asideVideos.splice(0, 4);
 
@@ -48,6 +58,10 @@ export default function VideoMain() {
           },
         }
       );
+
+      if (response.status === 200) {
+        dispatch({ type: "ADD_TO_LIKED", payload: response.data.likes });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -94,34 +108,61 @@ export default function VideoMain() {
             <div className="v-bottom-date-and-menu">
               <div className="v-bottom-date">{videoPlay.createdAt}</div>
               <div className="v-bottom-menu">
-                {state.liked.some((item) => item._id === videoPlay._id) ? (
-                  <div
-                    className="v-social-icon"
-                    onClick={() => disLikeHandler(videoPlay)}
-                  >
-                    <i className="fas fa-thumbs-down"></i>
-                    Like
-                  </div>
+                {authState.isAuthenticated ? (
+                  <>
+                    {state.liked.some((item) => item._id === videoPlay._id) ? (
+                      <div
+                        className="v-social-icon"
+                        onClick={() => disLikeHandler(videoPlay)}
+                      >
+                        <i className="fas fa-thumbs-down"></i>
+                        Like
+                      </div>
+                    ) : (
+                      <div
+                        className="v-social-icon"
+                        onClick={() => likeHandler(videoPlay)}
+                      >
+                        <i className="far fa-thumbs-up"></i>
+                        Like
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <div
-                    className="v-social-icon"
-                    onClick={() => likeHandler(videoPlay)}
+                    className="v-social-icon social-link"
+                    onClick={goOnLogin}
                   >
                     <i className="far fa-thumbs-up"></i>
                     Like
                   </div>
                 )}
 
-                <div
-                  className="v-social-icon"
-                  onClick={() => watchLaterHandler(videoPlay)}
-                >
-                  <i className="far fa-clock"></i>
-                  Watch Later
-                </div>
-                <div className="v-social-icon">
-                  <i className="far fa-bookmark"></i> Save
-                </div>
+                {authState.isAuthenticated ? (
+                  <div
+                    className="v-social-icon"
+                    onClick={() => watchLaterHandler(videoPlay)}
+                  >
+                    <i className="far fa-clock"></i>
+                    Watch Later
+                  </div>
+                ) : (
+                  <div
+                    className="v-social-icon social-link"
+                    onClick={goOnLogin}
+                  >
+                    <i className="far fa-clock"></i>
+                    Watch Later
+                  </div>
+                )}
+
+                {showModal && (
+                  <Modal
+                    setShowMenu={setShowMenu}
+                    setShowModal={setShowModal}
+                    item={item}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -157,8 +198,6 @@ export default function VideoMain() {
           })}
         </div>
       </div>
-
-      {/* aside */}
     </div>
   );
 }

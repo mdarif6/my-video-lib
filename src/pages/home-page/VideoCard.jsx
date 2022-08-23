@@ -105,13 +105,6 @@ export default function VideoCard({ item }) {
                     item={item}
                   />
                 )}
-
-                <div className="v-card-icons-with-menu">
-                  <div>
-                    <i className="fas fa-share"></i>
-                  </div>
-                  <div>Share</div>
-                </div>
               </div>
             </div>
           )}

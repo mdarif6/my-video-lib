@@ -54,8 +54,7 @@ export default function WatchMain() {
 
   return (
     <div className="v-watchlater-wrapper">
-      <div className="v-watchlater-heading">Watch Later</div>
-
+      <div className="page-title">Watch Later</div>
       {state.watchlater.map((videos) => {
         return (
           <div className="v-history-videos" key={videos._id}>

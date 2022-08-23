@@ -72,6 +72,7 @@ export default function HistoryMain() {
 
   return (
     <div className="v-history-wrapper">
+      <div className="page-title">Watch History</div>
       <div className="v-history-heading-and-btn">
         <div className="v-history-heading">
           Watch History ({state.history.length} videos)

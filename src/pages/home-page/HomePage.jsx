@@ -3,7 +3,6 @@ import "./HomePage.css";
 import Header from "../../common/Header";
 import Footer from "../../common/Footer";
 import Aside from "../../common/Aside";
-import Nav from "./Nav";
 import Main from "./Main";
 
 export default function HomePage() {
@@ -11,7 +10,6 @@ export default function HomePage() {
     <div className="v-video">
       <Header />
       <Aside />
-      {/* <Nav /> */}
       <Main />
       <Footer />
     </div>

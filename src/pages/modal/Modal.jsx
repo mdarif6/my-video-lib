@@ -44,6 +44,7 @@ export default function Modal({ setShowModal, setShowMenu, item }) {
     } catch (error) {
       console.log(error);
     }
+    setName("");
   }
 
   async function existingPlaylistHandler(itemID) {
@@ -67,8 +68,6 @@ export default function Modal({ setShowModal, setShowMenu, item }) {
 
   return (
     <div className="v-modal-wrapper">
-      {/* <button onClick={() => setShowModal(true)}>click</button> */}
-
       <div className="v-playlist-create-wrapper">
         <div className="v-playlist-box-heading">
           <div>Save to...</div>
@@ -125,8 +124,9 @@ export default function Modal({ setShowModal, setShowMenu, item }) {
           </div>
           <div>
             <button
-              className="v-playlist-create-btn"
+              className="v-playlist-create-btn "
               onClick={() => createPlayListHandler()}
+              disabled={name.length > 0 ? false : true}
             >
               CREATE
             </button>

@@ -4,36 +4,46 @@
   border-radius: 5px;
   margin: 2rem auto;
 }
-.v-login-container h2 {
-  padding: 0.5rem;
+.v-login-container {
+  padding: 1rem;
 }
+
 .v-input-text {
   display: flex;
   flex-direction: column;
+  padding: 0.5rem 0;
 }
 .v-input-text label {
-  margin: 0 1rem;
   text-align: left;
+  padding: 0;
 }
 .v-input-text input {
-  padding: 1rem;
-  margin: 0 1rem;
+  padding: 0.9rem;
 }
 .login-check {
   display: flex;
   gap: 1rem;
-  padding: 1rem;
 }
 .btn-primary {
-  width: 90%;
+  margin: 1rem 0 0.5rem 0;
+  width: 100%;
+  background-color: var(--v-primary-color);
+}
+
+.btn-primary-login {
+  display: flex;
+  justify-content: center;
+  margin: 0;
   background-color: var(--v-primary-color);
 }
 .btn-primary:hover {
   background-color: var(--v-primary-color);
 }
 .outline-primary {
-  width: 90%;
+  margin: 0;
+  width: 100%;
   color: var(--v-primary-color) !important;
+  border-color: var(--v-primary-color) !important;
 }
 .outline-primary:hover {
   background-color: var(--v-primary-color) !important;
@@ -41,6 +51,14 @@
 }
 .login-bottom-text {
   padding: 1rem;
+}
+.disabled-btn {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.login-check-label label,
+input {
+  cursor: pointer;
 }
 @media only screen and (max-width: 800px) {
   .v-login-window {
