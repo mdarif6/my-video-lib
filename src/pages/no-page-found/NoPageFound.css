@@ -1,0 +1,25 @@
+.v-error-page {
+  margin: 4rem;
+  text-align: center;
+}
+.v-error-page img {
+  width: 600px;
+}
+.v-error-msg {
+  text-align: center;
+}
+.main-heading {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.main-heading span {
+  color: var(--v-white-color);
+}
+
+@media only screen and (max-width: 800px) {
+  .v-error-page img {
+    max-width: 300px;
+  }
+}

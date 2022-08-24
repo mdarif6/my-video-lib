@@ -118,7 +118,7 @@ span {
   justify-content: center;
   flex-wrap: wrap;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1rem;
 }
 .v-chip {
