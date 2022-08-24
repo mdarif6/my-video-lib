@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import PrivateRoute from "./common/PrivateRoute";
 import Modal from "./pages/modal/Modal";
 import PlaylistsDetail from "./pages/playlist-details-page/PlaylistsDetail";
+import NoPageFound from "./pages/no-page-found/NoPageFound";
 
 function App() {
   const { state, dispatch } = useAuth();
@@ -79,6 +80,7 @@ function App() {
         />
 
         <Route path="/modal" element={<Modal />} />
+        <Route path="*" element={<NoPageFound />} />
       </Routes>
     </div>
   );
