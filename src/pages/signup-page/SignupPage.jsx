@@ -6,9 +6,9 @@ import SignMain from "./SignMain";
 export default function SignupPage() {
   return (
     <div className="v-video">
-      <HeaderWithOutSearch />
+      {/* <HeaderWithOutSearch /> */}
       <SignMain />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

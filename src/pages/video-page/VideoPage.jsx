@@ -8,10 +8,10 @@ import VideoMain from "./VideoMain";
 export default function VideoPage() {
   return (
     <div className="v-video">
-      <Header />
-      <Aside />
+      {/* <Header /> */}
+      {/* <Aside /> */}
       <VideoMain />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

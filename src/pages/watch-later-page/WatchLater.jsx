@@ -7,8 +7,8 @@ import WatchMain from "./WatchMain";
 export default function WatchLater() {
   return (
     <div className="v-video">
-      <HeaderWithOutSearch />
-      <Aside />
+      {/* <HeaderWithOutSearch /> */}
+      {/* <Aside /> */}
       <WatchMain />
     </div>
   );

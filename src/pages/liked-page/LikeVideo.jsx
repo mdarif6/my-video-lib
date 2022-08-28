@@ -7,8 +7,8 @@ import LikedMain from "./LikedMain";
 export default function LikeVideo() {
   return (
     <div className="v-video">
-      <HeaderWithOutSearch />
-      <Aside />
+      {/* <HeaderWithOutSearch /> */}
+      {/* <Aside /> */}
       <LikedMain />
     </div>
   );

@@ -6,8 +6,8 @@ import PlaylistsDetailMain from "./PlaylistsDetailMain";
 export default function Playlists() {
   return (
     <div className="v-video">
-      <Header />
-      <Aside />
+      {/* <Header /> */}
+      {/* <Aside /> */}
       <PlaylistsDetailMain />
     </div>
   );

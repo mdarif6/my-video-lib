@@ -8,10 +8,10 @@ import Main from "./Main";
 export default function HomePage() {
   return (
     <div className="v-video">
-      <Header />
-      <Aside />
+      {/* <Header /> */}
+      {/* <Aside /> */}
       <Main />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

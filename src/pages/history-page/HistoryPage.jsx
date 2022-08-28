@@ -6,10 +6,10 @@ import HistoryMain from "./HistoryMain";
 export default function HistoryPage() {
   return (
     <div className="v-video">
-      <HeaderWithOutSearch />
-      <Aside />
+      {/* <HeaderWithOutSearch /> */}
+      {/* <Aside /> */}
       <HistoryMain />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

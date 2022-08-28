@@ -5,7 +5,7 @@ import CreatePlaylistMain from "./CreatePlaylistMain";
 export default function CreatePlaylist() {
   return (
     <div className="v-video">
-      <Header />
+      {/* <Header /> */}
       <CreatePlaylistMain />
     </div>
   );
