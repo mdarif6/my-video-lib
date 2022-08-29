@@ -8,9 +8,8 @@
 }
 
 .v-video {
-  padding: 1rem;
   width: -webkit-fill-available;
-  /* display: grid; */
+
   grid-gap: 1rem;
   grid-template-rows: min-content auto min-content;
   grid-template-columns: min-content;
@@ -18,23 +17,10 @@
 
 .v-header {
   background-color: var(--v-gray-color);
-  grid-column: 1/3;
-  grid-row: 1/2;
 }
 .v-aside {
+  padding-top: 1.2rem;
   min-width: 200px;
-  grid-column: 1/2;
-  grid-row: 2/3;
-}
-
-.v-main {
-  grid-column: 2/3;
-  grid-row: 2/3;
-}
-
-.v-footer {
-  grid-column: 1/3;
-  grid-row: 3/4;
 }
 
 .link-style {
@@ -233,6 +219,7 @@ span {
   justify-content: center;
   align-items: center;
   padding: 0.3rem 0;
+  margin-top: 0.5rem;
 }
 
 .ha-footer-icons {
@@ -262,6 +249,7 @@ span {
 }
 .v-card-side-delete {
   font-size: 1.5rem;
+  padding-right: 1rem;
 }
 
 .v-history-heading-and-btn {
@@ -363,29 +351,13 @@ span {
 }
 @media only screen and (max-width: 800px) {
   .v-video {
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content auto min-content;
+    padding-top: 3rem;
   }
 
-  .v-header {
-    grid-column: 1/3;
-    grid-row: 1/2;
-  }
   .v-aside {
     min-width: 200px;
-    grid-column: 1/3;
-    grid-row: 2/3;
   }
 
-  .v-main {
-    grid-column: 1/3;
-    grid-row: 3/4;
-  }
-
-  .v-footer {
-    grid-column: 1/3;
-    grid-row: 4/5;
-  }
   .v-aside-content {
     display: flex;
     flex-wrap: wrap;

@@ -6,9 +6,7 @@ import LoginMain from "./LoginMain";
 export default function LoginPage() {
   return (
     <div className="v-video">
-      {/* <HeaderWithOutSearch /> */}
       <LoginMain />
-      {/* <Footer /> */}
     </div>
   );
 }
