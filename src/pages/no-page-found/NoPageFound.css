@@ -1,5 +1,4 @@
 .v-error-page {
-  margin: 4rem;
   text-align: center;
 }
 .v-error-page img {
@@ -16,6 +15,11 @@
 }
 .main-heading span {
   color: var(--v-white-color);
+}
+
+.no-page-found-wrapper {
+  margin: auto;
+  padding: 1rem;
 }
 
 @media only screen and (max-width: 800px) {

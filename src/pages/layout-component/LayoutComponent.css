@@ -1,0 +1,10 @@
+.aside-and-layout {
+  min-height: calc(100vh - 155.59px);
+  display: flex;
+}
+
+@media only screen and (max-width: 800px) {
+  .aside-and-layout {
+    flex-direction: column;
+  }
+}
